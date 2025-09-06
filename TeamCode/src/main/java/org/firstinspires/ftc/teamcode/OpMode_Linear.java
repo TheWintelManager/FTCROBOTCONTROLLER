@@ -153,6 +153,7 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
 
             
             arm  = gamepad1.x ? 1.0 : 0.0;
+            arm  = gamepad1.y ? 1.0 : 0.0;
         //    backLeftPower   = gamepad1.a ? 1.0 : 0.0;  // A gamepad
         //    frontRightPower = gamepad1.y ? 1.0 : 0.0;  // Y gamepad
         //    backRightPower  = gamepad1.b ? 1.0 : 0.0;  // B gamepad
