@@ -74,6 +74,8 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
     private DcMotor frontRightDrive = null;
     private DcMotor backRightDrive = null;
 
+    private DcMotor arm = null;
+
     @Override
     public void runOpMode() {
 
@@ -83,6 +85,8 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
         backLeftDrive = hardwareMap.get(DcMotor.class, "BL");
         frontRightDrive = hardwareMap.get(DcMotor.class, "FR");
         backRightDrive = hardwareMap.get(DcMotor.class, "BR");
+
+        arm = hardwareMap.get(DcMotor.class, "arm");
 
         // ########################################################################################
         // !!!            IMPORTANT Drive Information. Test your motor directions.            !!!!!
@@ -98,6 +102,8 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
+
+        arm.setDirection(DcMotor.Direction.FORWARD);
 
         // Wait for the game to start (driver presses START)
         telemetry.addData("Status", "Initialized");
@@ -145,12 +151,12 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
             //      the setDirection() calls above.
             // Once the correct motors move in the correct direction re-comment this code.
 
-            /*
-            frontLeftPower  = gamepad1.x ? 1.0 : 0.0;  // X gamepad
-            backLeftPower   = gamepad1.a ? 1.0 : 0.0;  // A gamepad
-            frontRightPower = gamepad1.y ? 1.0 : 0.0;  // Y gamepad
-            backRightPower  = gamepad1.b ? 1.0 : 0.0;  // B gamepad
-            */
+            
+            arm  = gamepad1.x ? 1.0 : 0.0;
+        //    backLeftPower   = gamepad1.a ? 1.0 : 0.0;  // A gamepad
+        //    frontRightPower = gamepad1.y ? 1.0 : 0.0;  // Y gamepad
+        //    backRightPower  = gamepad1.b ? 1.0 : 0.0;  // B gamepad
+            
 
             // Send calculated power to wheels
             frontLeftDrive.setPower(frontLeftPower);
